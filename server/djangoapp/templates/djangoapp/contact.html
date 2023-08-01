@@ -18,29 +18,33 @@
     <!-- This is the index page of your Django app! -->
     <!--Add a nav bar here -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Best Cars Dealership</a>
+        <a class="navbar-brand" href="{% url 'djangoapp:index' %}">Best Cars Dealership</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'djangoapp:index' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'djangoapp:about' %}">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'djangoapp:contact' %}">Contact Us</a>
+                    <a class="nav-link" href="#">Contact Us</a>
                 </li>
             </ul>
           </div>
     </nav>
 
-    <!--Add a dealer table here -->
-    <p>
-        This is a placeholder for a dealer table.
-    </p>
+    <div style="font-family: Arial, Helvetica, sans-serif; margin: 0;padding:50px; text-align:center; background-color:#474e5d; color:white">
+        <h1>Contact Us</h1>
+        <h5>Address:</h5>
+        <p>6050 St. Jacques Ouest, Montreal, Quebec H4A 2G4</p>
+        <h5>Telephone:</h5>
+        <p>(514) 487-0009</p>
+    </div>
+
     </body>
 
 </html>
