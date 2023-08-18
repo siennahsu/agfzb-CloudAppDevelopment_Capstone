@@ -15,8 +15,7 @@ class CarMake(models.Model):
     country = models.CharField(max_length=30)
 
     def __str__(self):
-        return "Name: " + self.name + "," + \
-               "Description: " + self.description
+        return self.name
 
 
 
@@ -39,8 +38,8 @@ class CarModel(models.Model):
         (WAGON, 'Wagon'),
         (SEMITRUCK, 'Semi-truck')
     ]
-    car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE, default="")
-    dealerID = models.IntegerField(default=1)
+    make = models.ForeignKey(CarMake, on_delete=models.CASCADE, default="")
+    id = models.IntegerField(default=1,primary_key=True)
     name = models.CharField(null=False, max_length=30, default='')
     car_type = models.CharField(
         null=False,
@@ -51,11 +50,11 @@ class CarModel(models.Model):
     year = models.DateField(null=True)
 
     def __str__(self):
-        return "Car make: " + self.car_make + "," + \
+        return "Car make: " + self.car_make.name + "," + \
                "Model: " + self.name + "," + \
-                "Year: " + self.year + "," + \
+                "Year: " + str(self.year) + "," + \
                 "Type: " + self.car_type + "," + \
-                "Dealer ID: " + self.dealerID
+                "Dealer ID: " + str(self.dealerID)
 
 
 # <HINT> Create a plain Python class `CarDealer` to hold dealer data

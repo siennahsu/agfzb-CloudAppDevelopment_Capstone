@@ -71,8 +71,7 @@
             {% endfor %}
         {% endif %}
     
-        <table class="table" id="table"
-            data-filter-control="true">
+        <table class="table" id="table" data-filter-control="true">
             <thead>
                 <tr>
                     <th data-field="id">ID</th>
@@ -87,7 +86,7 @@
                 {% for dealer in dealership_dicts %}
                     <tr>
                         <td>{{dealer.id}}</td>
-                        <td>{{dealer.full_name}}</td>   
+                        <td><a href="{% url 'djangoapp:dealer_details' dealer.id %}">{{dealer.full_name}}</a></td>   
                         <td>{{dealer.city}}</td>
                         <td>{{dealer.address}}</td>
                         <td>{{dealer.zip}}</td>
@@ -100,5 +99,9 @@
        </div>
 
     </body>
-
+    <script>
+        $(function() {
+          $('#table').bootstrapTable()
+        })
+    </script>
 </html>
